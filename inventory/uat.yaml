@@ -9,4 +9,4 @@ uat-webservers
 [multi:vars]
 host_key_checking=false
 ansible_ssh_user='ec2-user'
-roles_path=/home/ubuntu/ansible-config-artifact/roles
+roles_path=/home/dapetoo/Learning/darey.io/ansible-config-mgt/roles
