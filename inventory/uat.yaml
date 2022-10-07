@@ -1,0 +1,12 @@
+[uat-webservers]
+172.31.6.194 
+172.31.9.186
+
+[multi:children]
+uat-webservers
+
+# Variables that will be applied to all servers
+[multi:vars]
+host_key_checking=false
+ansible_ssh_user='ec2-user'
+roles_path=/home/ubuntu/ansible-config-mgt/roles
