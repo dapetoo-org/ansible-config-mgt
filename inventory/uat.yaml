@@ -1,6 +1,6 @@
 [uat-webservers]
 172.31.6.194 
-172.31.9.186
+172.31.11.151
 
 [multi:children]
 uat-webservers
@@ -9,4 +9,5 @@ uat-webservers
 [multi:vars]
 host_key_checking=false
 ansible_ssh_user='ec2-user'
-roles_path=/home/dapetoo/Learning/darey.io/ansible-config-mgt/roles
+roles_path=/home/ubuntu/ansible/roles
+ansible_ssh_private_key_file=/home/ubuntu/dapetoo-key.pem
