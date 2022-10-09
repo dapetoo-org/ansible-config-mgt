@@ -1,13 +1,21 @@
 [uat-webservers]
-172.31.6.194 
-172.31.11.151
+172.31.16.26
+172.31.16.26
+
+[db]
+172.31.16.26
+
+[lb]
+172.31.16.26
 
 [multi:children]
 uat-webservers
+lb
+db
 
 # Variables that will be applied to all servers
 [multi:vars]
 host_key_checking=false
-ansible_ssh_user='ec2-user'
+ansible_ssh_user='ubuntu'
 roles_path=/home/ubuntu/ansible/roles
 ansible_ssh_private_key_file=/home/ubuntu/dapetoo-key.pem

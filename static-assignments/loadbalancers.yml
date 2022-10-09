@@ -1,0 +1,16 @@
+---
+- hosts: lb
+  become: true
+  roles:
+    - { role: nginxinc.nginx, when: enable_nginx_lb and load_balancer_is_required }
+    - { role: geerlingguy.apache, when: enable_apache_lb and load_balancer_is_required }
+
+# - hosts: lb
+#   become: true
+#   roles:
+#     # - role: geerlingguy.nginx 
+#     # - role: nginxinc.nginx
+#     # - role: geerlingguy.apache
+
+#     - { role: nginxinc.nginx, when: enable_nginx_lb and load_balancer_is_required }
+#     - { role: geerlingguy.apache, when: enable_apache_lb and load_balancer_is_required }

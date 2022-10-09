@@ -1,0 +1,15 @@
+---
+- hosts: db
+  become: true
+  # vars_files:
+  #   - vars/db.yml
+  roles:
+  - geerlingguy.mysql
+
+# - hosts: db-mysql
+#   become: yes
+#   vars_files:
+#     - vars/main.yml
+#   roles:
+#     - { role: geerlingguy.mysql }
+

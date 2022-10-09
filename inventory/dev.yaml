@@ -1,17 +1,16 @@
 # mail.example.com
 
-[nfs]
-172.31.39.62 ansible_ssh_user='ec2-user'
+# [nfs]
+# 172.31.16.26 ansible_ssh_user='ubuntu'
 
-[webservers]
-172.31.3.37 ansible_ssh_user='ec2-user'
-172.31.39.111 ansible_ssh_user='ec2-user'
+# [webservers]
+# 172.31.16.26 ansible_ssh_user='ubuntu'
 
 [db]
-172.31.44.12 ansible_ssh_user='ubuntu'
+172.31.16.26 ansible_ssh_user='ubuntu'
 
 [lb]
-172.31.37.196 ansible_ssh_user='ubuntu'
+172.31.16.26 ansible_ssh_user='ubuntu'
 
 [multi:children]
 nfs

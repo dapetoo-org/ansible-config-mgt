@@ -1,15 +1,34 @@
 ---
-- hosts: all
-- name: Include dynamic variables 
-  tasks:
-  import_playbook: ../static-assignments/common.yml 
-  include: ../dynamic-assignments/env-vars.yml
+- name: Include dynamic variables
+  hosts: all
+
+- name: import the common playbook
+  import_playbook: ../static-assignments/common.yaml
   tags:
     - always
 
-- hosts: webservers
-- name: Webserver assignment
-  import_playbook: ../static-assignments/webservers.yml
 
-- hosts: uat-webservers
-- import_playbook: ../static-assignments/uat-webservers.yml
+# -------------------------------------
+- name: include the env-vars playbook
+  import_playbook: ../dynamic-assignments/env-vars.yml
+  tags:
+    - always
+
+- name: Testing the env. vars
+  hosts: web_servers
+  tasks:
+    - debug: 
+        msg: " {{ enable_apache_lb }} "
+
+# configure database server
+- name: loading play for database server(s)
+  import_playbook: ../static-assignments/deploy-mysql.yaml
+
+# configure webservers
+- name: Webserver assignment
+  import_playbook: ../static-assignments/uat-webservers.yml
+
+# configure loadbalancer
+- name: Loadbalancers assignment
+  import_playbook: ../static-assignments/loadbalancers.yml
+  when: load_balancer_is_required
